@@ -4,27 +4,29 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const FRAMES = [
-  { src: "/images/apple/apple.png", hold: 1800 },
-  { src: "/images/apple/applebite1.png", hold: 500 },
-  { src: "/images/apple/applebite2.png", hold: 500 },
-  { src: "/images/apple/applebite3.png", hold: 500 },
-  { src: "/images/apple/applefinal.png", hold: 1800 },
+  "/images/apple/apple.png",
+  "/images/apple/applebite1.png",
+  "/images/apple/applebite2.png",
+  "/images/apple/applebite3.png",
+  "/images/apple/applefinal.png",
 ];
+
+const FRAME_DURATION_MS = 600;
 
 export default function AppleBite() {
   const [frame, setFrame] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const interval = setInterval(() => {
       setFrame((current) => (current + 1) % FRAMES.length);
-    }, FRAMES[frame].hold);
-    return () => clearTimeout(timer);
-  }, [frame]);
+    }, FRAME_DURATION_MS);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative h-[479px] w-[509px]">
       <Image
-        src={FRAMES[frame].src}
+        src={FRAMES[frame]}
         alt="Pixel-art apple being bitten"
         fill
         className="object-contain [image-rendering:pixelated]"

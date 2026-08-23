@@ -14,23 +14,32 @@ export default function PersonaCard({
   rows: PersonaRow[];
 }) {
   return (
-    <div className="w-full rounded-[15px] border border-accent/40 p-8">
-      <p className="font-chivo text-2xl font-bold text-accent">{name}</p>
-      <p className="mt-2 font-chivo font-light text-black">{demographic}</p>
-      <div className="mt-6 flex flex-col gap-6">
-        {rows.map((row) => (
-          <div key={row.label} className="grid grid-cols-[125px_repeat(3,1fr)] gap-4">
-            <div>
-              <p className="text-lg text-black">{row.label}</p>
-              <p className="mt-2 text-[10px] leading-snug text-black/70">{row.description}</p>
-            </div>
-            {row.notes.map((note, i) => (
-              <div key={i} className="flex items-center justify-center rounded bg-accent/[0.39] p-2 text-center text-[10px] leading-snug text-black">
-                {note}
+    <div className="flex w-full flex-col items-center justify-center rounded-[15px] border border-accent/[0.39] px-[42px] py-7">
+      <div className="flex w-[508px] flex-col items-start gap-[30px]">
+        <div className="flex w-[145px] flex-col items-start gap-[6px]">
+          <p className="font-chivo text-2xl font-bold text-accent">{name}</p>
+          <p className="font-chivo text-base font-light text-black">{demographic}</p>
+        </div>
+        <div className="flex w-full flex-col items-start gap-7">
+          {rows.map((row) => (
+            <div key={row.label} className="flex w-full items-start gap-[50px]">
+              <div className="flex w-[125px] shrink-0 flex-col items-start gap-1 font-chivo text-black">
+                <p className="w-full text-base">{row.label}</p>
+                <p className="w-full text-[7px] leading-[10px]">{row.description}</p>
               </div>
-            ))}
-          </div>
-        ))}
+              <div className="flex items-center gap-6">
+                {row.notes.map((note, i) => (
+                  <div
+                    key={i}
+                    className="flex size-[95px] shrink-0 flex-col items-start bg-accent/[0.39] p-2.5 font-chivo text-[7px] text-black"
+                  >
+                    {note}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

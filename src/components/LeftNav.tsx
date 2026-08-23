@@ -23,8 +23,8 @@ export default function LeftNav({ className = "" }: { className?: string }) {
           <Link href="/" className="w-full font-chivo text-base text-accent">
             Rainee Pei
           </Link>
-          <div className="flex w-full flex-col items-start gap-3">
-            <div className="flex h-[25px] items-center bg-accent px-[7px] py-0.5">
+          <div className="flex w-full flex-col items-start gap-[10px]">
+            <div className="inline-flex items-center bg-accent">
               <p className="whitespace-nowrap font-mono text-base text-white">
                 UX ANALYST @ S&amp;C ELECTRIC
               </p>
@@ -50,16 +50,16 @@ export default function LeftNav({ className = "" }: { className?: string }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-start gap-5">
+        <div className="flex flex-col items-start gap-[18px]">
           {projects.map((project) => {
             const isActive = pathname === project.href;
             return (
               <Link
                 key={project.number}
                 href={project.href}
-                className="group flex w-full items-center gap-1.5"
+                className="group flex w-full items-end gap-1.5"
               >
-                <div className="flex items-end gap-2.5 whitespace-nowrap font-mono text-accent">
+                <div className="flex items-end gap-[11px] whitespace-nowrap font-mono text-accent">
                   <p className="text-[22px]">{project.number}</p>
                   <p
                     className={`text-base underline-offset-2 group-hover:underline ${

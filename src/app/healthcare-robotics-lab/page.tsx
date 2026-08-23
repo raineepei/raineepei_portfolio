@@ -21,21 +21,21 @@ export default function HealthcareRoboticsLab() {
 
             <div className="flex shrink-0 flex-col gap-[25px]">
               <div className="flex shrink-0 gap-[65px]">
-                <div className="flex w-[188px] shrink-0 flex-col gap-[15px]">
+                <div className="flex w-[188px] shrink-0 flex-col items-start gap-[15px]">
                   <BigHighlight>ROLE</BigHighlight>
                   <p className="font-chivo text-sm leading-10 text-black">REU Researcher</p>
                 </div>
-                <div className="flex w-[188px] shrink-0 flex-col gap-[15px]">
+                <div className="flex w-[188px] shrink-0 flex-col items-start gap-[15px]">
                   <BigHighlight>TIMELINE</BigHighlight>
                   <p className="font-chivo text-sm leading-10 text-black">Jun 2022 - Sep 2022</p>
                 </div>
-                <div className="flex w-[384px] shrink-0 flex-col gap-[15px]">
+                <div className="flex w-[384px] shrink-0 flex-col items-start gap-[15px]">
                   <BigHighlight>TEAM</BigHighlight>
                   <p className="font-chivo text-sm leading-10 text-black">Alyssa Kubota, Ethan Sun, Laurel Riek</p>
                 </div>
               </div>
 
-              <div className="flex w-[851px] shrink-0 flex-col gap-[15px]">
+              <div className="flex w-[851px] shrink-0 flex-col items-start gap-[15px]">
                 <BigHighlight>HRI 2023 PAPER</BigHighlight>
                 <a
                   href="https://dl.acm.org/doi/10.1145/3568162.3576993"

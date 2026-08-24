@@ -16,7 +16,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
 
   return (
     <div
-      className={`sticky top-0 flex h-screen w-[513px] shrink-0 items-start bg-transparent px-11 py-11.5 ${className}`}
+      className={`sticky top-0 flex h-screen w-[513px] shrink-0 items-start bg-transparent px-[60px] py-11.5 ${className}`}
     >
       <div className="flex w-[437px] flex-col items-start gap-[70px]">
         <div className="flex w-full flex-col items-start gap-[30px]">

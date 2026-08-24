@@ -11,7 +11,7 @@ export default function KiniKoffee() {
     <div className="flex min-h-screen bg-background">
       <LeftNav />
       <div className="flex flex-1 justify-center px-[60px] py-11.5">
-        <div className="flex w-[900px] flex-col items-start gap-[50px]">
+        <div className="flex w-[936px] flex-col items-start gap-[50px]">
           <div className="flex w-full flex-col items-start gap-[30px]">
             <div className="flex w-[422px] flex-col items-start gap-2.5 font-cormorant font-bold italic">
               <p className="w-full text-[26px] text-accent">Kini Koffee</p>

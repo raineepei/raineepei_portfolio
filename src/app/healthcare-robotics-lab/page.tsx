@@ -48,7 +48,7 @@ export default function HealthcareRoboticsLab() {
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-[26px]">
+          <div className="flex w-full flex-col items-start gap-[26px]">
             <div className="flex flex-col items-start gap-[22px]">
               <div className="flex w-[879px] flex-col items-start gap-3">
                 <p className="font-cormorant text-xl font-bold italic text-accent">Overview</p>

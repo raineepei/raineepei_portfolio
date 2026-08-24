@@ -13,7 +13,7 @@ export default function KiniKoffee() {
       <div className="flex flex-1 justify-center px-[60px] py-11.5">
         <div className="flex w-[936px] flex-col items-start gap-[50px]">
           <div className="flex w-full flex-col items-start gap-[30px]">
-            <div className="flex w-[422px] flex-col items-start gap-2.5 font-cormorant font-bold italic">
+            <div className="flex w-[422px] flex-col items-start gap-1 font-cormorant font-bold italic">
               <p className="w-full text-[26px] text-accent">Kini Koffee</p>
               <p className="w-full text-[22px] text-black">UX research</p>
             </div>
@@ -35,41 +35,11 @@ export default function KiniKoffee() {
                   </p>
                 </div>
               </div>
-
-              <div className="flex w-full shrink-0 flex-col items-start gap-[14px]">
-                <BigHighlight>FINAL WEBSITE</BigHighlight>
-                <a
-                  href="https://www.kinikoffeesd.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-chivo text-sm text-black underline"
-                >
-                  Kini Koffee
-                </a>
-              </div>
             </div>
           </div>
 
           <div className="flex w-full flex-col items-start gap-[22px]">
             <div className="flex w-full flex-col items-start gap-[22px]">
-              <div className="flex w-full flex-col items-start gap-[15px]">
-                <p className="font-cormorant text-xl font-bold italic text-accent">Understanding our users</p>
-                <p className="font-chivo text-sm leading-9 text-black">
-                  Kini Koffee wants to be portrayed as a &ldquo;fun, beachy, creative&rdquo; coffee shop for
-                  people ~16-20 years old. To kickoff our discovery research, I:
-                </p>
-                <div className="font-chivo text-sm leading-9 text-black">
-                  <p>
-                    + <span className="text-accent">Surveyed 60 users</span> within the target demographic
-                    on their outlook on small coffee shops.
-                  </p>
-                  <p>
-                    + <span className="text-accent">Interviewed 5 customers and 1 employee</span> at Kini
-                    Koffee&rsquo;s Del Mar location.
-                  </p>
-                </div>
-              </div>
-
               <div className="flex w-full flex-col items-start gap-[14px]">
                 <div className="flex w-full flex-col items-start gap-3">
                   <p className="font-cormorant text-xl font-bold italic text-accent">Overview</p>
@@ -114,6 +84,24 @@ export default function KiniKoffee() {
                       coffee shop in the area.
                     </li>
                   </ol>
+                </div>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-[15px]">
+                <p className="font-cormorant text-xl font-bold italic text-accent">Understanding our users</p>
+                <p className="font-chivo text-sm leading-9 text-black">
+                  Kini Koffee wants to be portrayed as a &ldquo;fun, beachy, creative&rdquo; coffee shop for
+                  people ~16-20 years old. To kickoff our discovery research, I:
+                </p>
+                <div className="font-chivo text-sm leading-9 text-black">
+                  <p>
+                    + <span className="text-accent">Surveyed 60 users</span> within the target demographic
+                    on their outlook on small coffee shops.
+                  </p>
+                  <p>
+                    + <span className="text-accent">Interviewed 5 customers and 1 employee</span> at Kini
+                    Koffee&rsquo;s Del Mar location.
+                  </p>
                 </div>
               </div>
             </div>

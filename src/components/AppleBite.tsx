@@ -13,7 +13,13 @@ const FRAMES = [
 
 const FRAME_DURATION_MS = 600;
 
-export default function AppleBite() {
+export default function AppleBite({
+  width = 509,
+  height = 479,
+}: {
+  width?: number;
+  height?: number;
+}) {
   const [frame, setFrame] = useState(0);
 
   useEffect(() => {
@@ -24,13 +30,13 @@ export default function AppleBite() {
   }, []);
 
   return (
-    <div className="relative h-[479px] w-[509px]">
+    <div className="relative" style={{ width, height }}>
       <Image
         src={FRAMES[frame]}
         alt="Pixel-art apple being bitten"
         fill
         className="object-contain [image-rendering:pixelated]"
-        sizes="509px"
+        sizes={`${width}px`}
         priority
       />
     </div>

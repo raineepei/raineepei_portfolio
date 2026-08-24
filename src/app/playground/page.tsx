@@ -1,4 +1,5 @@
 import LeftNav from "@/components/LeftNav";
+import AppleBite from "@/components/AppleBite";
 
 export const metadata = {
   title: "Playground — Rainee Pei",
@@ -8,11 +9,9 @@ export default function Playground() {
   return (
     <div className="flex min-h-screen bg-background">
       <LeftNav />
-      <div className="flex flex-1 items-center justify-center px-[60px] py-11.5">
-        <div className="flex flex-col items-start gap-2.5">
-          <p className="font-cormorant text-[34px] font-bold italic text-accent">Playground</p>
-          <p className="font-chivo text-xl text-black">Coming soon.</p>
-        </div>
+      <div className="flex flex-1 flex-col items-center justify-center gap-6 px-[60px] py-11.5">
+        <AppleBite width={255} height={240} />
+        <p className="font-chivo text-sm leading-9 text-accent">Coming soon.</p>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export default function KiniKoffee() {
             </div>
 
             <div className="flex w-full flex-col items-start gap-[22px]">
-              <div className="flex w-full items-start gap-[65px]">
+              <div className="flex w-full items-start gap-5">
                 <div className="flex w-[188px] shrink-0 flex-col items-start gap-[14px]">
                   <BigHighlight>ROLE</BigHighlight>
                   <p className="font-chivo text-sm text-black">UX Researcher</p>
@@ -28,7 +28,7 @@ export default function KiniKoffee() {
                   <BigHighlight>TIMELINE</BigHighlight>
                   <p className="font-chivo text-sm text-black">Jun 2021 - Sep 2021</p>
                 </div>
-                <div className="flex w-[384px] shrink-0 flex-col items-start gap-[14px]">
+                <div className="flex flex-[1_0_0] flex-col items-start gap-[14px]">
                   <BigHighlight>TEAM</BigHighlight>
                   <p className="font-chivo text-sm text-black">
                     Edward de Leon, Stella Seki, Chynna Tumalad, Deepika Vuppala

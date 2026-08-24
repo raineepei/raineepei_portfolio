@@ -22,15 +22,15 @@ export default function HealthcareRoboticsLab() {
               <div className="flex items-start gap-[65px]">
                 <div className="flex w-[188px] shrink-0 flex-col items-start gap-[14px]">
                   <BigHighlight>ROLE</BigHighlight>
-                  <p className="font-chivo text-sm leading-10 text-black">REU Researcher</p>
+                  <p className="font-chivo text-sm leading-normal text-black">REU Researcher</p>
                 </div>
                 <div className="flex w-[188px] shrink-0 flex-col items-start gap-[14px]">
                   <BigHighlight>TIMELINE</BigHighlight>
-                  <p className="font-chivo text-sm leading-10 text-black">Jun 2022 - Sep 2022</p>
+                  <p className="font-chivo text-sm leading-normal text-black">Jun 2022 - Sep 2022</p>
                 </div>
                 <div className="flex w-[384px] shrink-0 flex-col items-start gap-[14px]">
                   <BigHighlight>TEAM</BigHighlight>
-                  <p className="font-chivo text-sm leading-10 text-black">Alyssa Kubota, Ethan Sun, Laurel Riek</p>
+                  <p className="font-chivo text-sm leading-normal text-black">Alyssa Kubota, Ethan Sun, Laurel Riek</p>
                 </div>
               </div>
 
@@ -40,7 +40,7 @@ export default function HealthcareRoboticsLab() {
                   href="https://dl.acm.org/doi/10.1145/3568162.3576993"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-chivo text-sm leading-10 text-black underline"
+                  className="font-chivo text-sm leading-normal text-black underline"
                 >
                   Get SMART: Collaborative Goal Setting with Cognitively Assistive Robots
                 </a>
@@ -52,7 +52,7 @@ export default function HealthcareRoboticsLab() {
             <div className="flex flex-col items-start gap-[22px]">
               <div className="flex w-[879px] flex-col items-start gap-3">
                 <p className="font-cormorant text-xl font-bold italic text-accent">Overview</p>
-                <p className="font-chivo text-sm leading-10 text-black">
+                <p className="font-chivo text-sm leading-9 text-black">
                   I worked in the{" "}
                   <a href="https://healthrobotics.ucsd.edu/" target="_blank" rel="noopener noreferrer" className="underline">
                     Healthcare Robotics Lab
@@ -68,7 +68,7 @@ export default function HealthcareRoboticsLab() {
                   longitudinal health interventional, specifically for{" "}
                   <span className="font-bold text-accent">People with Mild Cognitive Impairment (PwMCI)</span>.
                 </p>
-                <p className="font-chivo text-sm leading-10 text-black">
+                <p className="font-chivo text-sm leading-9 text-black">
                   <span className="font-bold">Mild Cognitive Impairment (MCI)</span> - the stage between the
                   cognitive decline of normal aging and dementia.
                 </p>
@@ -77,7 +77,7 @@ export default function HealthcareRoboticsLab() {
 
               <div className="flex w-[864px] flex-col items-start gap-3">
                 <p className="font-cormorant text-xl font-bold italic text-accent">What did I work on?</p>
-                <div className="flex flex-col gap-[15px] font-chivo text-sm leading-10 text-black">
+                <div className="flex flex-col gap-[15px] font-chivo text-sm leading-9 text-black">
                   <p>
                     With a focus on <span className="font-bold text-accent">co-designing</span> and{" "}
                     <span className="font-bold text-accent">compensatory design</span>, I researched potential
@@ -87,10 +87,10 @@ export default function HealthcareRoboticsLab() {
                   </p>
                   <p>Emphasis during my time at the lab was placed on answering the question:</p>
                 </div>
-                <p className="w-full text-center font-chivo text-sm text-accent">
+                <p className="w-full text-center font-chivo text-sm leading-9 text-accent">
                   How can we design <span className="font-bold">with</span> others, not just for others?
                 </p>
-                <p className="font-chivo text-sm leading-10 text-black">
+                <p className="font-chivo text-sm leading-9 text-black">
                   After conducting a few <span className="font-bold text-accent">pilot studies</span>, we
                   conducted <span className="font-bold text-accent">in-person interviews with 5 PwMCI</span>,
                   who were all from a related clinical intervention where they were involved in ME-CCT-MCI
@@ -113,7 +113,7 @@ export default function HealthcareRoboticsLab() {
               <p className="font-chivo text-sm font-bold text-black">Fig 1. User personas</p>
             </div>
 
-            <p className="font-chivo text-sm leading-10 text-black">
+            <p className="font-chivo text-sm leading-9 text-black">
               During these interviews, I led{" "}
               <span className="font-bold text-accent">live sketching sessions</span> - these help us quickly
               summarize and document user needs and expectations. The sketches are reviewed by the
@@ -137,7 +137,7 @@ export default function HealthcareRoboticsLab() {
             </div>
 
             <div className="flex w-full flex-col items-start gap-[22px]">
-              <div className="flex w-full flex-col items-start gap-[15px] font-chivo text-sm leading-10 text-black">
+              <div className="flex w-full flex-col items-start gap-[15px] font-chivo text-sm leading-9 text-black">
                 <p>
                   These initial interviews allowed us to develop a{" "}
                   <span className="font-bold text-accent">low-fidelity prototype</span> addressing user needs.
@@ -162,7 +162,7 @@ export default function HealthcareRoboticsLab() {
 
               <div className="flex w-full flex-col items-start gap-3">
                 <p className="font-cormorant text-xl font-bold italic text-accent">Takeaways</p>
-                <div className="flex w-full flex-col items-start font-chivo text-sm leading-10 text-black">
+                <div className="flex w-full flex-col items-start font-chivo text-sm leading-9 text-black">
                   <p>+ Focus on designing with users, not just for users.</p>
                   <p>
                     + Continue to advocate for accessibility and inclusive design! Accessibility and inclusive

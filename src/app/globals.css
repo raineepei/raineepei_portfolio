@@ -17,8 +17,7 @@
   --font-mono: var(--font-roboto-mono);
 }
 
-html,
-body {
+html {
   overflow-x: hidden;
 }
 

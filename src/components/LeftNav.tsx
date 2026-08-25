@@ -69,7 +69,11 @@ export default function LeftNav({ className = "" }: { className?: string }) {
                     {project.label}
                   </p>
                 </div>
-                <div className={`${isActive ? "flex" : "hidden"} group-hover:flex`}>
+                <div
+                  className={`transition-opacity duration-300 group-hover:opacity-100 ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                >
                   <PixelHandsIcon />
                 </div>
               </Link>

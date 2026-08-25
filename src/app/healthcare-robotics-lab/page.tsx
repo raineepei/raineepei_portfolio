@@ -50,7 +50,7 @@ export default function HealthcareRoboticsLab() {
 
           <div className="flex w-full flex-col items-start gap-[26px]">
             <div className="flex flex-col items-start gap-[22px]">
-              <div className="flex w-[879px] flex-col items-start gap-3">
+              <div className="flex w-full flex-col items-start gap-3">
                 <p className="font-cormorant text-xl font-bold italic text-accent">Overview</p>
                 <p className="font-chivo text-sm leading-9 text-black">
                   I worked in the{" "}
@@ -75,29 +75,48 @@ export default function HealthcareRoboticsLab() {
               </div>
               <div className="h-px w-[879px] bg-accent/20" />
 
-              <div className="flex w-[864px] flex-col items-start gap-3">
+              <div className="flex w-full flex-col items-start gap-3">
                 <p className="font-cormorant text-xl font-bold italic text-accent">What did I work on?</p>
-                <div className="flex flex-col gap-[15px] font-chivo text-sm leading-9 text-black">
-                  <p>
+                <div className="flex w-full flex-col items-start gap-3">
+                  <p className="font-chivo text-sm leading-9 text-black">
                     With a focus on <span className="font-bold text-accent">co-designing</span> and{" "}
-                    <span className="font-bold text-accent">compensatory design</span>, I researched potential
-                    design considerations for a robot (e.g. robot behaviors, leading goal setting, showing
-                    progress) that can effectively support goal progress and motivation throughout an
-                    intervention for PwMCI.
+                    <span className="font-bold text-accent">compensatory design</span>, I researched and wrote
+                    about potential design considerations for a robot (e.g. robot behaviors, leading goal
+                    setting, showing progress) that can effectively support goal progress and motivation
+                    throughout an intervention for PwMCI.
                   </p>
-                  <p>Emphasis during my time at the lab was placed on answering the question:</p>
+                  <div className="flex w-full flex-col items-center gap-3">
+                    <div className="flex w-full items-start justify-center gap-[50px]">
+                      <div className="relative h-[285px] w-[227px] overflow-hidden rounded-[5px]">
+                        <Image src="/images/healthcare/carmen-screenshot1.png" alt="CARMEN helping a user identify their intervention goals" fill className="object-cover" />
+                      </div>
+                      <div className="relative h-[285px] w-[241px] overflow-hidden rounded-[5px]">
+                        <Image src="/images/healthcare/carmen-screenshot2.png" alt="CARMEN showing the user a mock graph of their progress toward their goal" fill className="object-cover" />
+                      </div>
+                    </div>
+                    <p className="whitespace-nowrap font-chivo text-[10px] font-bold text-black">
+                      Fig 1. <span className="italic">Left</span>: CARMEN helping a user identify their
+                      intervention goals. Right: <span className="italic">CARMEN</span> showing the user a
+                      mock graph of their progress toward their goal.
+                    </p>
+                  </div>
+                  <div className="flex w-full flex-col items-start gap-0.5">
+                    <p className="font-chivo text-sm leading-9 text-black">
+                      Emphasis during my time at the lab was placed on answering the question:
+                    </p>
+                    <p className="w-full text-center font-chivo text-sm leading-9 text-accent">
+                      How can we design <span className="font-bold">with</span> others, not just for others?
+                    </p>
+                    <p className="font-chivo text-sm leading-9 text-black">
+                      After conducting a few <span className="font-bold text-accent">pilot studies</span>, we
+                      conducted <span className="font-bold text-accent">in-person interviews with 5 PwMCI</span>,
+                      who were all from a related clinical intervention where they were involved in ME-CCT-MCI
+                      (Motivationally Enhanced Compensatory Cognitive Training for Mild Cognitive Impairment). We
+                      were maintaining the interventions these users have already received, and are making the
+                      assumption these users are already familiar with the intervention.
+                    </p>
+                  </div>
                 </div>
-                <p className="w-full text-center font-chivo text-sm leading-9 text-accent">
-                  How can we design <span className="font-bold">with</span> others, not just for others?
-                </p>
-                <p className="font-chivo text-sm leading-9 text-black">
-                  After conducting a few <span className="font-bold text-accent">pilot studies</span>, we
-                  conducted <span className="font-bold text-accent">in-person interviews with 5 PwMCI</span>,
-                  who were all from a related clinical intervention where they were involved in ME-CCT-MCI
-                  (Motivationally Enhanced Compensatory Cognitive Training for Mild Cognitive Impairment). We
-                  were maintaining the interventions these users have already received, and are making the
-                  assumption these users are already familiar with the intervention.
-                </p>
               </div>
             </div>
 
@@ -110,7 +129,7 @@ export default function HealthcareRoboticsLab() {
                   <Image src="/images/healthcare/personas-blake-anderson.jpg" alt="Blake Anderson user persona" fill className="object-cover" />
                 </div>
               </div>
-              <p className="font-chivo text-sm font-bold text-black">Fig 1. User personas</p>
+              <p className="font-chivo text-[10px] font-bold text-black">Fig 2. User personas</p>
             </div>
 
             <p className="font-chivo text-sm leading-9 text-black">
@@ -133,7 +152,7 @@ export default function HealthcareRoboticsLab() {
                   <Image src="/images/healthcare/image18.png" alt="Live sketching session photo" fill className="object-cover" />
                 </div>
               </div>
-              <p className="font-chivo text-sm font-bold text-black">Fig 2. Some examples from my live sketching sessions</p>
+              <p className="font-chivo text-[10px] font-bold text-black">Fig 3. Some examples from my live sketching sessions</p>
             </div>
 
             <div className="flex w-full flex-col items-start gap-[22px]">
@@ -150,11 +169,7 @@ export default function HealthcareRoboticsLab() {
                   We then did individual rounds of{" "}
                   <span className="font-bold text-accent">Grounded Theory-Based Analysis (i.e. affinity diagramming)</span>,
                   eventually performing a group analysis to narrow down the main themes and sub-themes we
-                  found from our interviews.
-                </p>
-                <p>
-                  A hi-fidelity prototype of the robot interactions based on PwMCI&rsquo;s feedback and design
-                  recommendations were later developed by a future team.
+                  found from our interviews, highlighted in our paper.
                 </p>
               </div>
 

@@ -22,7 +22,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rainee Pei — UX Researcher + Designer",
+  title: "Rainee Pei — Portfolio",
   description: "Portfolio of Rainee Pei, UX Researcher and Designer.",
 };
 

@@ -10,7 +10,7 @@ export default function KiniKoffee() {
   return (
     <div className="flex min-h-screen bg-background">
       <LeftNav />
-      <div className="mr-[60px] flex flex-1 justify-center overflow-x-hidden py-11.5 pl-[60px]">
+      <div className="mr-[80px] flex flex-1 justify-center overflow-x-hidden py-11.5 pl-[20px]">
         <div className="flex w-[936px] flex-col items-start gap-[50px]">
           <div className="flex w-full flex-col items-start gap-[30px]">
             <div className="flex w-[422px] flex-col items-start gap-1 font-cormorant font-bold italic">

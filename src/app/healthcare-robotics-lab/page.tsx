@@ -10,7 +10,7 @@ export default function HealthcareRoboticsLab() {
   return (
     <div className="flex min-h-screen bg-background">
       <LeftNav />
-      <div className="flex flex-1 justify-center px-[60px] py-11.5">
+      <div className="mr-[60px] flex flex-1 justify-center overflow-x-hidden py-11.5 pl-[60px]">
         <div className="flex w-[936px] flex-col items-start gap-10">
           <div className="flex flex-col items-start gap-[30px]">
             <div className="flex w-full flex-col items-start gap-1 font-cormorant font-bold italic">

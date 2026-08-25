@@ -10,7 +10,7 @@ export default function KiniKoffee() {
   return (
     <div className="flex min-h-screen bg-background">
       <LeftNav />
-      <div className="flex flex-1 justify-center px-[60px] py-11.5">
+      <div className="mr-[60px] flex flex-1 justify-center overflow-x-hidden py-11.5 pl-[60px]">
         <div className="flex w-[936px] flex-col items-start gap-[50px]">
           <div className="flex w-full flex-col items-start gap-[30px]">
             <div className="flex w-[422px] flex-col items-start gap-1 font-cormorant font-bold italic">
@@ -53,9 +53,10 @@ export default function KiniKoffee() {
                   <p className="font-cormorant text-xl font-bold italic text-accent">Impact</p>
                   <p className="font-chivo text-sm leading-9 text-black">
                     I spearheaded the research and interview process, including the end-to-end process
-                    involving recruitment and data analysis and synthesis. Collaborating with the UI/UX and
-                    Visual Designers, I helped pull key insights from our research and interviews to help
-                    inform our design decisions. The work showcased below are my{" "}
+                    involving <span className="font-bold text-accent">recruitment</span> and{" "}
+                    <span className="font-bold text-accent">data analysis and synthesis</span>. Collaborating
+                    with the UI/UX and Visual Designers, I helped pull key insights from our research and
+                    interviews to help inform our design decisions. The work showcased below are my{" "}
                     <span className="font-bold text-accent">primary contributions</span>.
                   </p>
                 </div>

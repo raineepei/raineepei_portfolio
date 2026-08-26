@@ -25,11 +25,11 @@ export default function LeftNav({ className = "" }: { className?: string }) {
           </Link>
           <div className="flex w-full flex-col items-start gap-[10px]">
             <div className="inline-flex items-center bg-accent">
-              <p className="whitespace-nowrap font-mono text-base text-white">
+              <p className="whitespace-nowrap font-mono text-sm text-white">
                 UX ANALYST @ S&amp;C ELECTRIC
               </p>
             </div>
-            <div className="flex items-center gap-[30px] whitespace-nowrap font-mono text-base text-accent">
+            <div className="flex items-center gap-[30px] whitespace-nowrap font-mono text-sm text-accent">
               <a href="/resume" className="underline underline-offset-2">
                 RESUME.
               </a>
@@ -60,9 +60,9 @@ export default function LeftNav({ className = "" }: { className?: string }) {
                 className="group flex w-full items-end gap-1.5"
               >
                 <div className="flex items-end gap-[11px] whitespace-nowrap font-mono text-accent">
-                  <p className="text-[22px]">{project.number}</p>
+                  <p className="text-sm">[{project.number}]</p>
                   <p
-                    className={`text-base underline-offset-2 group-hover:underline ${
+                    className={`text-[13px] underline-offset-2 group-hover:underline ${
                       isActive ? "underline" : ""
                     }`}
                   >

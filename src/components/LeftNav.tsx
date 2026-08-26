@@ -20,16 +20,16 @@ export default function LeftNav({ className = "" }: { className?: string }) {
     >
       <div className="flex w-[437px] flex-col items-start gap-[70px]">
         <div className="flex w-full flex-col items-start gap-[30px]">
-          <Link href="/" className="w-full font-chivo text-base text-accent">
+          <Link href="/" className="w-full font-ufo-mono text-base text-accent">
             Rainee Pei
           </Link>
           <div className="flex w-full flex-col items-start gap-[10px]">
             <div className="inline-flex items-center bg-accent">
-              <p className="whitespace-nowrap font-mono text-sm text-white">
+              <p className="whitespace-nowrap font-inconsolata text-sm text-white">
                 UX ANALYST @ S&amp;C ELECTRIC
               </p>
             </div>
-            <div className="flex items-center gap-[30px] whitespace-nowrap font-mono text-sm text-accent">
+            <div className="flex items-center gap-[30px] whitespace-nowrap font-inconsolata text-sm text-accent">
               <a href="/resume" className="underline underline-offset-2">
                 RESUME.
               </a>
@@ -59,7 +59,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
                 href={project.href}
                 className="group flex w-full items-end gap-1.5"
               >
-                <div className="flex items-end gap-[11px] whitespace-nowrap font-mono text-accent">
+                <div className="flex items-end gap-[11px] whitespace-nowrap font-inconsolata text-accent">
                   <p className="text-sm">[{project.number}]</p>
                   <p
                     className={`text-[13px] underline-offset-2 group-hover:underline ${

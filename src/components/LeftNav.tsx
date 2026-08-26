@@ -20,7 +20,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
     >
       <div className="flex w-[437px] flex-col items-start gap-[70px]">
         <div className="flex w-full flex-col items-start gap-[30px]">
-          <Link href="/" className="w-full font-ufo-mono text-base text-accent">
+          <Link href="/" className="w-full font-ufo-mono text-sm text-accent">
             Rainee Pei
           </Link>
           <div className="flex w-full flex-col items-start gap-[10px]">

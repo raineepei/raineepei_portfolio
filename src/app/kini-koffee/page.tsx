@@ -22,15 +22,15 @@ export default function KiniKoffee() {
               <div className="flex w-full items-start gap-5">
                 <div className="flex w-[188px] shrink-0 flex-col items-start gap-[14px]">
                   <BigHighlight>ROLE</BigHighlight>
-                  <p className="font-chivo text-[12px] text-black">UX Researcher</p>
+                  <p className="font-chivo text-sm text-black">UX Researcher</p>
                 </div>
                 <div className="flex w-[188px] shrink-0 flex-col items-start gap-[14px]">
                   <BigHighlight>TIMELINE</BigHighlight>
-                  <p className="font-chivo text-[12px] text-black">Jun 2021 - Sep 2021</p>
+                  <p className="font-chivo text-sm text-black">Jun 2021 - Sep 2021</p>
                 </div>
                 <div className="flex flex-[1_0_0] flex-col items-start gap-[14px]">
                   <BigHighlight>TEAM</BigHighlight>
-                  <p className="font-chivo text-[12px] text-black">
+                  <p className="font-chivo text-sm text-black">
                     Edward de Leon, Stella Seki, Chynna Tumalad, Deepika Vuppala
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function KiniKoffee() {
                         they appreciated the atmosphere they experience from Kini Koffee
                       </p>
                     </div>
-                    <p className="w-[581px] font-chivo text-[12px] text-black">
+                    <p className="w-[581px] font-chivo text-[12px] leading-[34px] text-black">
                       <span className="text-accent">&ldquo;</span> One - if the drinks are good and the
                       service - drinks and service would be primary, and then the atmosphere, like this
                       [points at ocean] definitely is the icing on the cake.

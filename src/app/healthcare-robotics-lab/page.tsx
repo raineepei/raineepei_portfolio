@@ -57,7 +57,7 @@ export default function HealthcareRoboticsLab() {
                   <a href="https://healthrobotics.ucsd.edu/" target="_blank" rel="noopener noreferrer" className="underline">
                     Healthcare Robotics Lab
                   </a>{" "}
-                  under an <span className="font-bold text-accent">REU</span> (Research Experience for
+                  under an <span className="text-[14px] font-bold text-accent">REU</span> (Research Experience for
                   Undergraduates), <span className="underline">contributing to a{" "}
                   <a href="https://dl.acm.org/doi/10.1145/3568162.3576993" target="_blank" rel="noopener noreferrer" className="underline">
                     paper
@@ -66,14 +66,14 @@ export default function HealthcareRoboticsLab() {
                   <span className="underline">HRI 2023</span>. The paper explores how
                   robots can support people in identifying and achieving their personal goals throughout a
                   longitudinal health interventional, specifically for{" "}
-                  <span className="font-bold text-accent">People with Mild Cognitive Impairment (PwMCI)</span>.
+                  <span className="text-[14px] font-bold text-accent">People with Mild Cognitive Impairment (PwMCI)</span>.
                 </p>
                 <p className="font-chivo text-[12px] leading-[34px] text-black">
                   <span className="font-bold">Mild Cognitive Impairment (MCI)</span> - the stage between the
                   cognitive decline of normal aging and dementia.
                 </p>
               </div>
-              <div className="h-px w-[879px] bg-accent/20" />
+              <div className="h-px w-full bg-accent/20" />
 
               <div className="flex w-full flex-col items-start gap-3">
                 <p className="font-cormorant text-[18px] font-bold italic text-accent">What did I work on?</p>
@@ -173,7 +173,7 @@ export default function HealthcareRoboticsLab() {
                 </p>
               </div>
 
-              <div className="h-px w-[879px] bg-accent/20" />
+              <div className="h-px w-full bg-accent/20" />
 
               <div className="flex w-full flex-col items-start gap-3">
                 <p className="font-cormorant text-[18px] font-bold italic text-accent">Takeaways</p>

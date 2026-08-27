@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${chivo.variable} ${cormorant.variable} ${robotoMono.variable} ${inconsolata.variable} ${ufoMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#f2f2f2]">{children}</body>
+      <body className="min-h-full bg-[#fafafa]">{children}</body>
     </html>
   );
 }

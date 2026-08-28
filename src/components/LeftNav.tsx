@@ -10,23 +10,20 @@ const projects = [
     label: "S&C ELECTRIC",
     href: "/sc-electric",
     description: "Design Systems, Accessibility, UX Research, Interaction Design",
-    gap: "gap-[6px]",
   },
   {
     number: "02",
     label: "HEALTHCARE ROBOTICS LAB",
     href: "/healthcare-robotics-lab",
     description: "Accessibility, Human-Robot Interaction",
-    gap: "gap-[10px]",
   },
   {
     number: "03",
     label: "KINI KOFFEE",
     href: "/kini-koffee",
     description: "UX Research",
-    gap: "gap-[11px]",
   },
-  { number: "04", label: "PLAYGROUND", href: "/playground", gap: "gap-[11px]" },
+  { number: "04", label: "PLAYGROUND", href: "/playground" },
 ];
 
 export default function LeftNav({ className = "" }: { className?: string }) {
@@ -78,7 +75,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
                 className="group flex w-full flex-col items-start gap-1.5"
               >
                 <div className="flex w-full items-end gap-1.5">
-                  <div className={`flex items-end ${project.gap} whitespace-nowrap font-inconsolata text-accent`}>
+                  <div className="flex items-end gap-[6px] whitespace-nowrap font-inconsolata text-accent">
                     <p className="text-sm">[{project.number}]</p>
                     <p
                       className={`text-[13px] tracking-[0.39px] underline-offset-2 group-hover:underline ${

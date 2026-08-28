@@ -10,18 +10,23 @@ const projects = [
     label: "S&C ELECTRIC",
     href: "/sc-electric",
     description: "Design Systems, Accessibility, UX Research, Interaction Design",
+    labelTracking: "tracking-[0.42px]",
+    descriptionSize: "text-[12px]",
   },
   {
     number: "02",
     label: "HEALTHCARE ROBOTICS LAB",
     href: "/healthcare-robotics-lab",
     description: "Accessibility, Human-Robot Interaction",
+    labelTracking: "tracking-[0.42px]",
+    descriptionSize: "text-[12px]",
   },
   {
     number: "03",
     label: "KINI KOFFEE",
     href: "/kini-koffee",
     description: "UX Research",
+    descriptionSize: "text-[10px]",
   },
   { number: "04", label: "PLAYGROUND", href: "/playground" },
 ];
@@ -81,9 +86,9 @@ export default function LeftNav({ className = "" }: { className?: string }) {
               >
                 <div className="flex w-full items-end gap-1.5">
                   <div className="flex items-end gap-[6px] whitespace-nowrap font-inconsolata text-accent">
-                    <p className="text-sm">[{project.number}]</p>
+                    <p className="text-[15px]">[{project.number}]</p>
                     <p
-                      className={`text-[13px] tracking-[0.39px] underline-offset-2 group-hover:underline ${
+                      className={`text-[14px] ${project.labelTracking ?? ""} underline-offset-2 group-hover:underline ${
                         isActive ? "underline" : ""
                       }`}
                     >
@@ -99,7 +104,9 @@ export default function LeftNav({ className = "" }: { className?: string }) {
                   </div>
                 </div>
                 {project.description && (
-                  <p className="whitespace-nowrap font-chivo text-[10px] font-light text-accent">
+                  <p
+                    className={`whitespace-nowrap font-chivo ${project.descriptionSize ?? "text-[10px]"} font-light text-accent`}
+                  >
                     {project.description}
                   </p>
                 )}

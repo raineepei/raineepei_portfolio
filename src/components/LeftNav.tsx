@@ -45,7 +45,12 @@ export default function LeftNav({ className = "" }: { className?: string }) {
               </p>
             </div>
             <div className="flex items-center gap-[30px] whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-accent">
-              <a href="/resume" className="underline underline-offset-2">
+              <a
+                href="https://drive.google.com/file/d/1isHo9CbKXxzVqzrpj0zFvMtXREPLrQ1U/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2"
+              >
                 RESUME.
               </a>
               <a

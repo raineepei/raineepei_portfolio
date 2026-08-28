@@ -11,7 +11,7 @@ export default function ScElectric() {
       <LeftNav />
       <div className="flex flex-1 flex-col items-center justify-center gap-6 px-[60px] py-11.5">
         <AppleBite width={255} height={240} />
-        <p className="font-chivo text-[12px] leading-[34px] text-accent">Coming soon.</p>
+        <p className="font-chivo text-[12px] leading-[34px] text-accent">WIP</p>
       </div>
     </div>
   );

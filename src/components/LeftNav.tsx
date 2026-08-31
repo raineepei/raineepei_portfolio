@@ -11,7 +11,6 @@ const projects = [
     href: "/sc-electric",
     description: "Design Systems, Accessibility, UX Research, Interaction Design",
     labelTracking: "tracking-[0.42px]",
-    descriptionSize: "text-[12px]",
   },
   {
     number: "02",
@@ -19,14 +18,12 @@ const projects = [
     href: "/healthcare-robotics-lab",
     description: "Accessibility, Human-Robot Interaction",
     labelTracking: "tracking-[0.42px]",
-    descriptionSize: "text-[12px]",
   },
   {
     number: "03",
     label: "KINI KOFFEE",
     href: "/kini-koffee",
     description: "UX Research",
-    descriptionSize: "text-[10px]",
   },
   { number: "04", label: "PLAYGROUND", href: "/playground" },
 ];
@@ -104,9 +101,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
                   </div>
                 </div>
                 {project.description && (
-                  <p
-                    className={`whitespace-nowrap font-chivo ${project.descriptionSize ?? "text-[10px]"} font-light text-accent`}
-                  >
+                  <p className="whitespace-nowrap font-chivo text-[12px] font-light text-accent">
                     {project.description}
                   </p>
                 )}

@@ -12,8 +12,6 @@ const PHOTOS = [
 
 const PHOTO_INTRINSIC_WIDTH = 800;
 const PHOTO_INTRINSIC_HEIGHT = 533;
-const TRAIL_LIFETIME_MS = 500;
-const TRAIL_MIN_DISTANCE = 28;
 const LEAVE_FADE_MS = 300;
 const STAR_CROSS_RADIUS = 45;
 const PHOTO_STAGGER_MS = 300;
@@ -27,12 +25,6 @@ type ScatteredPhoto = {
   rotation: number;
   zIndex: number;
   delay: number;
-};
-
-type TrailStar = {
-  id: number;
-  x: number;
-  y: number;
 };
 
 const ROTATIONS = [0, 90, 180, 270];
@@ -80,9 +72,7 @@ export default function HomeHero() {
   const [isHovering, setIsHovering] = useState(false);
   const [isOverStar, setIsOverStar] = useState(false);
   const [photos, setPhotos] = useState<ScatteredPhoto[]>([]);
-  const [trail, setTrail] = useState<TrailStar[]>([]);
   const wasOverStarRef = useRef(false);
-  const lastTrailPosRef = useRef<{ x: number; y: number } | null>(null);
   const leaveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -103,10 +93,8 @@ export default function HomeHero() {
     setIsHovering(false);
     setIsOverStar(false);
     wasOverStarRef.current = false;
-    lastTrailPosRef.current = null;
     leaveTimeoutRef.current = setTimeout(() => {
       setPhotos([]);
-      setTrail([]);
     }, LEAVE_FADE_MS);
   };
 
@@ -114,17 +102,6 @@ export default function HomeHero() {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
-    const lastTrail = lastTrailPosRef.current;
-    const trailDist = lastTrail ? Math.hypot(x - lastTrail.x, y - lastTrail.y) : Infinity;
-    if (trailDist >= TRAIL_MIN_DISTANCE) {
-      lastTrailPosRef.current = { x, y };
-      const trailId = uid++;
-      setTrail((current) => [...current, { id: trailId, x, y }]);
-      setTimeout(() => {
-        setTrail((current) => current.filter((star) => star.id !== trailId));
-      }, TRAIL_LIFETIME_MS);
-    }
 
     const dist = Math.hypot(x - rect.width / 2, y - rect.height / 2);
     const overStar = dist <= STAR_CROSS_RADIUS;
@@ -167,18 +144,6 @@ export default function HomeHero() {
                 "--photo-delay": `${photo.delay}ms`,
               } as CSSProperties
             }
-          />
-        ))}
-
-        {trail.map((star) => (
-          <Image
-            key={star.id}
-            src="/images/cursor/star-filled.svg"
-            alt=""
-            width={18}
-            height={21}
-            className="trail-dot pointer-events-none absolute"
-            style={{ left: star.x, top: star.y }}
           />
         ))}
       </div>

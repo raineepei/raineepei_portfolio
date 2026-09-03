@@ -27,4 +27,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-chivo), Arial, Helvetica, sans-serif;
+  cursor: url("/images/cursor/star-outline.svg") 8 9, auto;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: url("/images/cursor/star-filled.svg") 8 9, pointer;
 }

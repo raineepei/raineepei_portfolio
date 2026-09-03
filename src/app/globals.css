@@ -35,3 +35,29 @@ button,
 [role="button"] {
   cursor: url("/images/cursor/star-filled.svg") 8 9, pointer;
 }
+
+@keyframes trail-fade {
+  from {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+}
+
+.trail-dot {
+  animation: trail-fade 500ms ease-out forwards;
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.scatter-photo {
+  animation: photo-in 300ms ease-out both;
+  animation-delay: var(--photo-delay, 0ms);
+}

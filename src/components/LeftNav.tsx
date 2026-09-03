@@ -83,7 +83,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
               >
                 <div className="flex w-full items-end gap-1.5">
                   <div className="flex items-end gap-[6px] whitespace-nowrap font-inconsolata text-accent">
-                    <p className="text-[15px]">[{project.number}]</p>
+                    <p className="text-[15px]">({project.number})</p>
                     <p
                       className={`text-[14px] ${project.labelTracking ?? ""} underline-offset-2 group-hover:underline ${
                         isActive ? "underline" : ""

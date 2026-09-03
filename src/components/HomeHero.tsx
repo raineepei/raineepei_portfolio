@@ -14,6 +14,7 @@ const PHOTO_INTRINSIC_WIDTH = 800;
 const PHOTO_INTRINSIC_HEIGHT = 533;
 const LEAVE_FADE_MS = 300;
 const STAR_CROSS_RADIUS = 45;
+const STAR_EXCLUSION_RADIUS = 80;
 const PHOTO_STAGGER_MS = 300;
 
 type ScatteredPhoto = {
@@ -43,6 +44,9 @@ function shuffle<T>(items: T[]): T[] {
 function generateScatteredPhotos(containerWidth: number, containerHeight: number): ScatteredPhoto[] {
   const rotations = shuffle(ROTATIONS);
   const order = shuffle(PHOTOS.map((_, i) => i));
+  const centerX = containerWidth / 2;
+  const centerY = containerHeight / 2;
+  const maxDist = Math.hypot(containerWidth, containerHeight) / 2;
 
   return PHOTOS.map((src, index) => {
     const width = Math.round(180 + Math.random() * 160);
@@ -53,8 +57,23 @@ function generateScatteredPhotos(containerWidth: number, containerHeight: number
     const boxHeight = isSideways ? width : height;
     const paddingX = boxWidth / 2;
     const paddingY = boxHeight / 2;
-    const x = paddingX + Math.random() * Math.max(containerWidth - paddingX * 2, 0);
-    const y = paddingY + Math.random() * Math.max(containerHeight - paddingY * 2, 0);
+    const halfDiagonal = Math.hypot(boxWidth, boxHeight) / 2;
+    const minDist = STAR_EXCLUSION_RADIUS + halfDiagonal;
+
+    let x = centerX;
+    let y = centerY;
+    for (let attempt = 0; attempt < 20; attempt++) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = minDist + Math.random() * Math.max(maxDist - minDist, 0);
+      const candidateX = Math.min(Math.max(centerX + Math.cos(angle) * dist, paddingX), containerWidth - paddingX);
+      const candidateY = Math.min(Math.max(centerY + Math.sin(angle) * dist, paddingY), containerHeight - paddingY);
+      if (Math.hypot(candidateX - centerX, candidateY - centerY) >= STAR_EXCLUSION_RADIUS) {
+        x = candidateX;
+        y = candidateY;
+        break;
+      }
+    }
+
     return {
       id: uid++,
       src,

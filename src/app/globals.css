@@ -27,18 +27,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-chivo), Arial, Helvetica, sans-serif;
-  cursor: url("/images/cursor/star-outline.svg") 8 9, auto;
+  cursor: url("/images/cursor/star-outline.svg") 9 11, auto;
 }
 
 a,
 button,
 [role="button"] {
-  cursor: url("/images/cursor/star-filled.svg") 8 9, pointer;
+  cursor: url("/images/cursor/star-filled.svg") 9 11, pointer;
 }
 
 @keyframes trail-fade {
   from {
-    opacity: 0.6;
+    opacity: 0.45;
     transform: translate(-50%, -50%) scale(1);
   }
   to {
@@ -58,6 +58,6 @@ button,
 }
 
 .scatter-photo {
-  animation: photo-in 300ms ease-out both;
+  animation: photo-in 400ms ease-out both;
   animation-delay: var(--photo-delay, 0ms);
 }

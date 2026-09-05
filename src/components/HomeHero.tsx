@@ -138,7 +138,7 @@ export default function HomeHero() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
-      style={isOverStar ? { cursor: 'url("/images/cursor/star-filled.svg") 9 11, pointer' } : undefined}
+      style={isOverStar ? { cursor: 'url("/images/cursor/cursor-plus.svg") 5 5, pointer' } : undefined}
     >
       <div
         className="pointer-events-none absolute inset-0 transition-opacity ease-out"

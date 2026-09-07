@@ -63,3 +63,19 @@ button,
   background-repeat: repeat;
   background-position: right bottom;
 }
+
+@keyframes grid-cell-fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.grid-cell-highlight {
+  animation: grid-cell-fade 1400ms ease-in-out forwards;
+}

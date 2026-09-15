@@ -47,35 +47,18 @@ button,
   animation-delay: var(--photo-delay, 0ms);
 }
 
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(to right, rgba(8, 87, 195, 0.1) 1px, transparent 1px),
-    linear-gradient(
-      to bottom,
-      rgba(8, 87, 195, 0.1) 1px,
-      transparent 1px,
-      transparent 19px,
-      rgba(8, 87, 195, 0.1) 19px,
-      rgba(8, 87, 195, 0.1) 20px,
-      transparent 20px
-    );
-  background-size: 20px 22px;
-  background-repeat: repeat;
-  background-position: right bottom;
-}
-
-@keyframes grid-cell-fade {
-  0% {
+@keyframes sparkle-trail-fade {
+  from {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
-  25% {
-    opacity: 1;
-  }
-  100% {
+  to {
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
   }
 }
 
-.grid-cell-highlight {
-  animation: grid-cell-fade 1400ms ease-in-out forwards;
+.sparkle-trail {
+  animation: sparkle-trail-fade 900ms ease-out forwards;
 }
+

@@ -3,90 +3,96 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 
-const CELL_WIDTH = 20;
-const ROW_CYCLE = 22;
-// Within each 22px row cycle the grid has a doubled line pair near one edge,
-// leaving an 18px "big" cell and a 2px sliver between the two close lines.
-const BIG_CELL_START = 3; // distance-from-bottom where the big cell begins
-const BIG_CELL_HEIGHT = 18;
-const HIGHLIGHT_LIFETIME_MS = 1400;
+const SPARKLE_CHARS = [...".⋆ 𖥔 ݁ ˖₊‧.⭒.‧₊˖ ݁𖥔 ݁˖ ."].filter((char) => char.trim().length > 0);
+const TRAIL_MIN_DISTANCE = 15;
+const TRAIL_LIFETIME_MS = 900;
+const FADE_IN_INTERACTIONS = 120;
 
-type HighlightedCell = {
+const WORDMARK_LETTERS = [
+  "/images/home/letters/letter-1-h.svg",
+  "/images/home/letters/letter-2-e.svg",
+  "/images/home/letters/letter-3-l.svg",
+  "/images/home/letters/letter-4-l.svg",
+  "/images/home/letters/letter-5-o.svg",
+  "/images/home/letters/letter-6-o.svg",
+  "/images/home/letters/letter-7-o.svg",
+  "/images/home/letters/letter-8-o.svg",
+];
+const INTERACTIONS_PER_LETTER = FADE_IN_INTERACTIONS / WORDMARK_LETTERS.length;
+
+type TrailItem = {
   id: number;
   left: number;
   top: number;
+  char: string;
 };
 
 let uid = 0;
 
 export default function HomeGrid() {
-  const [highlights, setHighlights] = useState<HighlightedCell[]>([]);
-  const lastCellKeyRef = useRef<string | null>(null);
+  const [trail, setTrail] = useState<TrailItem[]>([]);
+  const [interactionCount, setInteractionCount] = useState(0);
+  const lastPosRef = useRef<{ x: number; y: number } | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const distFromBottom = rect.height - y;
-    const cycleIndex = Math.floor((distFromBottom - BIG_CELL_START) / ROW_CYCLE);
-    const cyclePos = distFromBottom - BIG_CELL_START - cycleIndex * ROW_CYCLE;
-
-    if (cyclePos < 0 || cyclePos >= BIG_CELL_HEIGHT) {
-      // inside the thin sliver row between the doubled lines — no fill
-      lastCellKeyRef.current = null;
-      return;
-    }
-
-    const colFromRight = Math.floor((rect.width - x) / CELL_WIDTH);
-    const key = `${colFromRight}_${cycleIndex}`;
-
-    if (key === lastCellKeyRef.current) return;
-    lastCellKeyRef.current = key;
-
-    const left = rect.width - (colFromRight + 1) * CELL_WIDTH;
-    const cellBottomDist = BIG_CELL_START + cycleIndex * ROW_CYCLE + BIG_CELL_HEIGHT;
-    const top = rect.height - cellBottomDist;
+    const last = lastPosRef.current;
+    const dist = last ? Math.hypot(x - last.x, y - last.y) : Infinity;
+    if (dist < TRAIL_MIN_DISTANCE) return;
+    lastPosRef.current = { x, y };
 
     const id = uid++;
-    setHighlights((current) => [...current, { id, left, top }]);
+    const char = SPARKLE_CHARS[Math.floor(Math.random() * SPARKLE_CHARS.length)];
+    setTrail((current) => [...current, { id, left: x, top: y, char }]);
+    setInteractionCount((current) => Math.min(current + 1, FADE_IN_INTERACTIONS));
     setTimeout(() => {
-      setHighlights((current) => current.filter((cell) => cell.id !== id));
-    }, HIGHLIGHT_LIFETIME_MS);
+      setTrail((current) => current.filter((item) => item.id !== id));
+    }, TRAIL_LIFETIME_MS);
   };
 
   const handleMouseLeave = () => {
-    lastCellKeyRef.current = null;
+    lastPosRef.current = null;
   };
 
   return (
     <div
-      className="bg-grid-pattern relative flex flex-1 items-end justify-end overflow-hidden pt-16 pr-[40px] pb-[46px]"
+      className="relative flex flex-1 items-end justify-end overflow-hidden pt-16 pr-[40px] pb-[46px]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {highlights.map((cell) => (
-        <div
-          key={cell.id}
-          className="grid-cell-highlight pointer-events-none absolute"
-          style={{
-            left: cell.left,
-            top: cell.top,
-            width: CELL_WIDTH,
-            height: BIG_CELL_HEIGHT,
-            backgroundColor: "#0857C3",
-          }}
-        />
+      {trail.map((item) => (
+        <span
+          key={item.id}
+          className="sparkle-trail text-accent pointer-events-none absolute text-2xl whitespace-nowrap"
+          style={{ left: item.left, top: item.top }}
+        >
+          {item.char}
+        </span>
       ))}
 
-      <Image
-        src="/images/home/hello-wordmark.svg"
-        alt=""
-        width={759}
-        height={173}
-        className="relative"
-        priority
-      />
+      <div className="relative" style={{ width: 759, height: 173 }}>
+        {WORDMARK_LETTERS.map((src, i) => {
+          const opacity = Math.min(
+            Math.max((interactionCount - i * INTERACTIONS_PER_LETTER) / INTERACTIONS_PER_LETTER, 0),
+            1
+          );
+          return (
+            <Image
+              key={src}
+              src={src}
+              alt=""
+              width={759}
+              height={173}
+              className="absolute inset-0 transition-opacity duration-500 ease-out"
+              style={{ opacity }}
+              priority
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

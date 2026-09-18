@@ -8,9 +8,10 @@ const TRAIL_MIN_DISTANCE = 15;
 const TRAIL_LIFETIME_MS = 900;
 
 const PHOTO_PANELS = [
-  { src: "/images/home/porthome-1.png", naturalWidth: 412 },
-  { src: "/images/home/porthome-2.png", naturalWidth: 297 },
-  { src: "/images/home/porthome-3.png", naturalWidth: 281 },
+  { src: "/images/home/porthome-1.png", naturalWidth: 279 },
+  { src: "/images/home/porthome-2.png", naturalWidth: 413 },
+  { src: "/images/home/porthome-3.png", naturalWidth: 279 },
+  { src: "/images/home/porthome-4.png", naturalWidth: 295 },
 ];
 const PHOTO_NATURAL_WIDTH = PHOTO_PANELS.reduce((sum, p) => sum + p.naturalWidth, 0);
 const PHOTO_NATURAL_HEIGHT = 310;
@@ -103,7 +104,7 @@ export default function HomeGrid() {
               className="relative h-full"
               style={{ width: (panel.naturalWidth / PHOTO_NATURAL_WIDTH) * photo.width }}
             >
-              <Image src={panel.src} alt="" fill className="object-cover" priority />
+              <Image src={panel.src} alt="" fill sizes="400px" className="object-cover" priority />
             </div>
           ))}
         </div>

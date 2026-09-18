@@ -7,7 +7,12 @@ const SPARKLE_CHARS = [...".⋆ 𖥔 ݁ ˖₊‧.⭒.‧₊˖ ݁𖥔 ݁˖ ."].fi
 const TRAIL_MIN_DISTANCE = 15;
 const TRAIL_LIFETIME_MS = 900;
 
-const PHOTO_NATURAL_WIDTH = 990;
+const PHOTO_PANELS = [
+  { src: "/images/home/porthome-1.png", naturalWidth: 412 },
+  { src: "/images/home/porthome-2.png", naturalWidth: 297 },
+  { src: "/images/home/porthome-3.png", naturalWidth: 281 },
+];
+const PHOTO_NATURAL_WIDTH = PHOTO_PANELS.reduce((sum, p) => sum + p.naturalWidth, 0);
 const PHOTO_NATURAL_HEIGHT = 310;
 const PHOTO_MAX_WIDTH = 396;
 const PHOTO_MIN_WIDTH = 140;
@@ -88,15 +93,20 @@ export default function HomeGrid() {
       ))}
 
       {photo && (
-        <Image
-          src="/images/home/porthome.png"
-          alt=""
-          width={PHOTO_NATURAL_WIDTH}
-          height={PHOTO_NATURAL_HEIGHT}
-          className="absolute"
+        <div
+          className="absolute flex"
           style={{ top: photo.top, left: photo.left, width: photo.width, height: photo.height }}
-          priority
-        />
+        >
+          {PHOTO_PANELS.map((panel) => (
+            <div
+              key={panel.src}
+              className="relative h-full"
+              style={{ width: (panel.naturalWidth / PHOTO_NATURAL_WIDTH) * photo.width }}
+            >
+              <Image src={panel.src} alt="" fill className="object-cover" priority />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

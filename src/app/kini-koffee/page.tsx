@@ -151,7 +151,7 @@ export default function KiniKoffee() {
                       usually find coffee shops through Yelp.
                     </div>
                     <div className="relative size-[200px] shrink-0">
-                      <Image src="/images/kini/discovery-chart.png" alt="Coffee shop discovery channels chart" fill className="object-contain" />
+                      <Image src="/images/kini/discovery-chart.png" alt="Coffee shop discovery channels chart" fill sizes="200px" className="object-contain" />
                     </div>
                   </div>
                 </div>

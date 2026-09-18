@@ -123,10 +123,10 @@ export default function HealthcareRoboticsLab() {
             <div className="flex w-full flex-col items-center gap-7">
               <div className="flex w-full items-center justify-between">
                 <div className="relative h-[365px] w-[420px]">
-                  <Image src="/images/healthcare/personas-jean-kim.jpg" alt="Jean Kim user persona" fill className="object-cover" />
+                  <Image src="/images/healthcare/personas-jean-kim.png" alt="Jean Kim user persona" fill className="object-contain" />
                 </div>
                 <div className="relative h-[365px] w-[420px]">
-                  <Image src="/images/healthcare/personas-blake-anderson.jpg" alt="Blake Anderson user persona" fill className="object-cover" />
+                  <Image src="/images/healthcare/personas-blake-anderson.png" alt="Blake Anderson user persona" fill className="object-contain" />
                 </div>
               </div>
               <p className="font-chivo text-[10px] font-bold text-black">Fig 2. User personas</p>

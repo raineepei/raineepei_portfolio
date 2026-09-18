@@ -1,24 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const SPARKLE_CHARS = [...".⋆ 𖥔 ݁ ˖₊‧.⭒.‧₊˖ ݁𖥔 ݁˖ ."].filter((char) => char.trim().length > 0);
 const TRAIL_MIN_DISTANCE = 15;
 const TRAIL_LIFETIME_MS = 900;
-const FADE_IN_INTERACTIONS = 120;
 
-const WORDMARK_LETTERS = [
-  "/images/home/letters/letter-1-h.svg",
-  "/images/home/letters/letter-2-e.svg",
-  "/images/home/letters/letter-3-l.svg",
-  "/images/home/letters/letter-4-l.svg",
-  "/images/home/letters/letter-5-o.svg",
-  "/images/home/letters/letter-6-o.svg",
-  "/images/home/letters/letter-7-o.svg",
-  "/images/home/letters/letter-8-o.svg",
-];
-const INTERACTIONS_PER_LETTER = FADE_IN_INTERACTIONS / WORDMARK_LETTERS.length;
+const PHOTO_NATURAL_WIDTH = 990;
+const PHOTO_NATURAL_HEIGHT = 310;
+const PHOTO_MAX_WIDTH = 396;
+const PHOTO_MIN_WIDTH = 140;
 
 type TrailItem = {
   id: number;
@@ -30,9 +22,31 @@ type TrailItem = {
 let uid = 0;
 
 export default function HomeGrid() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [trail, setTrail] = useState<TrailItem[]>([]);
-  const [interactionCount, setInteractionCount] = useState(0);
+  const [photo, setPhoto] = useState<{ top: number; left: number; width: number; height: number } | null>(
+    null
+  );
   const lastPosRef = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const margin = 24;
+    const width = Math.max(
+      Math.min(PHOTO_MAX_WIDTH, el.clientWidth - margin * 2),
+      PHOTO_MIN_WIDTH
+    );
+    const height = width * (PHOTO_NATURAL_HEIGHT / PHOTO_NATURAL_WIDTH);
+    const maxLeft = Math.max(el.clientWidth - width - margin, margin);
+    const maxTop = Math.max(el.clientHeight - height - margin, margin);
+    setPhoto({
+      width,
+      height,
+      top: margin + Math.random() * (maxTop - margin),
+      left: margin + Math.random() * (maxLeft - margin),
+    });
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -47,7 +61,6 @@ export default function HomeGrid() {
     const id = uid++;
     const char = SPARKLE_CHARS[Math.floor(Math.random() * SPARKLE_CHARS.length)];
     setTrail((current) => [...current, { id, left: x, top: y, char }]);
-    setInteractionCount((current) => Math.min(current + 1, FADE_IN_INTERACTIONS));
     setTimeout(() => {
       setTrail((current) => current.filter((item) => item.id !== id));
     }, TRAIL_LIFETIME_MS);
@@ -59,7 +72,8 @@ export default function HomeGrid() {
 
   return (
     <div
-      className="relative flex flex-1 items-end justify-end overflow-hidden pt-16 pr-[40px] pb-[46px]"
+      ref={containerRef}
+      className="relative flex-1 overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -73,26 +87,17 @@ export default function HomeGrid() {
         </span>
       ))}
 
-      <div className="relative" style={{ width: 759, height: 173 }}>
-        {WORDMARK_LETTERS.map((src, i) => {
-          const opacity = Math.min(
-            Math.max((interactionCount - i * INTERACTIONS_PER_LETTER) / INTERACTIONS_PER_LETTER, 0),
-            1
-          );
-          return (
-            <Image
-              key={src}
-              src={src}
-              alt=""
-              width={759}
-              height={173}
-              className="absolute inset-0 transition-opacity duration-500 ease-out"
-              style={{ opacity }}
-              priority
-            />
-          );
-        })}
-      </div>
+      {photo && (
+        <Image
+          src="/images/home/porthome.png"
+          alt=""
+          width={PHOTO_NATURAL_WIDTH}
+          height={PHOTO_NATURAL_HEIGHT}
+          className="absolute"
+          style={{ top: photo.top, left: photo.left, width: photo.width, height: photo.height }}
+          priority
+        />
+      )}
     </div>
   );
 }

@@ -25,9 +25,30 @@ const CAPSULES = [
   },
 ];
 
+function DirectionArrow({ direction, hovered }: { direction: "left" | "right"; hovered: boolean }) {
+  return (
+    <svg
+      width="7"
+      height="9"
+      viewBox="0 0 16.4545 21.75"
+      fill="none"
+      style={{ transform: `rotate(${direction === "left" ? -90 : 90}deg)` }}
+    >
+      <path
+        d="M15.7311 21.25H0.723335L8.22724 1.41309L15.7311 21.25Z"
+        fill={hovered ? "#0857C3" : "#D9D9D9"}
+        stroke="white"
+      />
+    </svg>
+  );
+}
+
 export default function PhotographySlideshow() {
   const [index, setIndex] = useState(0);
+  const [hoveredArrow, setHoveredArrow] = useState<"left" | "right" | null>(null);
   const capsule = CAPSULES[index];
+
+  const goTo = (i: number) => setIndex((i + CAPSULES.length) % CAPSULES.length);
 
   const photo = (
     <Image
@@ -43,19 +64,35 @@ export default function PhotographySlideshow() {
   return (
     <div className="flex flex-col items-center gap-[30px]">
       <div className="flex h-[434px] items-center justify-center">
-        {capsule.href ? (
-          <Link
-            href={capsule.href}
-            className="relative"
-            style={{ width: capsule.width, height: capsule.height }}
+        <div className="relative" style={{ width: capsule.width, height: capsule.height }}>
+          {capsule.href ? (
+            <Link href={capsule.href} className="absolute inset-0">
+              {photo}
+            </Link>
+          ) : (
+            photo
+          )}
+          <button
+            type="button"
+            onClick={() => goTo(index - 1)}
+            onMouseEnter={() => setHoveredArrow("left")}
+            onMouseLeave={() => setHoveredArrow(null)}
+            aria-label="Previous capsule"
+            className="absolute top-1/2 left-2 flex -translate-y-1/2 items-center justify-center"
           >
-            {photo}
-          </Link>
-        ) : (
-          <div className="relative" style={{ width: capsule.width, height: capsule.height }}>
-            {photo}
-          </div>
-        )}
+            <DirectionArrow direction="left" hovered={hoveredArrow === "left"} />
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(index + 1)}
+            onMouseEnter={() => setHoveredArrow("right")}
+            onMouseLeave={() => setHoveredArrow(null)}
+            aria-label="Next capsule"
+            className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center justify-center"
+          >
+            <DirectionArrow direction="right" hovered={hoveredArrow === "right"} />
+          </button>
+        </div>
       </div>
       <div className="flex items-center gap-[10px]">
         {CAPSULES.map((c, i) => (

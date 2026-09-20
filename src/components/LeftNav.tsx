@@ -49,11 +49,8 @@ export default function LeftNav({
         <div className="flex w-full flex-col items-start gap-[70px]">
           <div className="flex w-full flex-col items-start gap-[30px]">
             {back ? (
-              <Link
-                href={back}
-                className="w-full font-inconsolata text-sm tracking-[0.42px] text-accent underline underline-offset-2"
-              >
-                BACK.
+              <Link href={back} className="inline-flex items-center justify-center bg-accent">
+                <p className="font-inconsolata text-sm font-bold whitespace-nowrap text-white">BACK</p>
               </Link>
             ) : (
               <Link href="/" className="w-full font-ufo-mono text-sm text-accent">

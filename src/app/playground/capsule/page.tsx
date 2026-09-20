@@ -11,7 +11,7 @@ export default function PhotographyCapsulePage() {
       <div className="flex justify-center py-11.5">
         <PhotographyCapsuleGallery />
       </div>
-      <LeftNav minimal fixed className="z-10" />
+      <LeftNav minimal back="/playground" fixed className="z-10" />
     </div>
   );
 }

@@ -32,16 +32,18 @@ export default function LeftNav({
   className = "",
   minimal = false,
   back,
+  fixed = false,
 }: {
   className?: string;
   minimal?: boolean;
   back?: string;
+  fixed?: boolean;
 }) {
   const pathname = usePathname();
 
   return (
     <div
-      className={`sticky top-0 flex h-screen w-[513px] shrink-0 items-start bg-transparent py-[50px] pl-[60px] pr-[40px] ${className}`}
+      className={`${fixed ? "fixed" : "sticky"} top-0 flex h-screen w-[513px] shrink-0 items-start bg-transparent py-[50px] pl-[60px] pr-[40px] ${className}`}
     >
       <div className="flex h-full w-[437px] flex-col items-start justify-between">
         <div className="flex w-full flex-col items-start gap-[70px]">

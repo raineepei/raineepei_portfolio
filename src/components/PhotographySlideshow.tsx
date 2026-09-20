@@ -4,40 +4,66 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const PHOTOS = [
-  "/images/photography/DSCF1238.jpg",
-  "/images/photography/DSCF1085-2.jpg",
-  "/images/photography/DSCF1161-2.jpg",
-  "/images/photography/DSCF1189-2.jpg",
-  "/images/photography/DSCF1131-2.jpg",
-  "/images/photography/DSCF1079-2.jpg",
-  "/images/photography/DSCF1220-2.jpg",
-  "/images/photography/DSCF1279-2.jpg",
-  "/images/photography/DSCF1201-2.jpg",
+const CAPSULES = [
+  {
+    hero: "/images/photography/DSCF1238.jpg",
+    href: "/playground/grid",
+    width: 346,
+    height: 434,
+  },
+  {
+    hero: "/images/photography-capsule/DSCF1381.jpg",
+    href: "/playground/capsule",
+    width: 509,
+    height: 339,
+  },
+  {
+    hero: "/images/photography-kellypark/DSCF1628.jpg",
+    href: undefined,
+    width: 509,
+    height: 339,
+  },
 ];
 
 export default function PhotographySlideshow() {
   const [index, setIndex] = useState(0);
+  const capsule = CAPSULES[index];
+
+  const photo = (
+    <Image
+      src={capsule.hero}
+      alt=""
+      fill
+      sizes={`${capsule.width}px`}
+      className="object-cover"
+      priority
+    />
+  );
 
   return (
-    <div className="flex w-[346px] flex-col items-center gap-[30px]">
-      <Link href="/playground/grid" className="relative h-[434px] w-full">
-        <Image
-          src={PHOTOS[index]}
-          alt=""
-          fill
-          sizes="346px"
-          className="object-cover"
-          priority
-        />
-      </Link>
+    <div className="flex flex-col items-center gap-[30px]">
+      <div className="flex h-[434px] items-center justify-center">
+        {capsule.href ? (
+          <Link
+            href={capsule.href}
+            className="relative"
+            style={{ width: capsule.width, height: capsule.height }}
+          >
+            {photo}
+          </Link>
+        ) : (
+          <div className="relative" style={{ width: capsule.width, height: capsule.height }}>
+            {photo}
+          </div>
+        )}
+      </div>
       <div className="flex items-center gap-[10px]">
-        {PHOTOS.map((photo, i) => (
+        {CAPSULES.map((c, i) => (
           <button
-            key={photo}
+            key={c.hero}
             type="button"
             onClick={() => setIndex(i)}
-            aria-label={`Go to photo ${i + 1}`}
+            aria-label={`Go to capsule ${i + 1}`}
             className="flex size-[10px] items-center justify-center"
           >
             {i === index ? (

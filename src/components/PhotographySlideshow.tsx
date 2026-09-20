@@ -12,14 +12,14 @@ const CAPSULES = [
     height: 434,
   },
   {
-    hero: "/images/photography-capsule/DSCF1381.jpg",
-    href: "/playground/capsule",
+    hero: "/images/photography-kellypark/DSCF1628.jpg",
+    href: "/playground/kellypark",
     width: 509,
     height: 339,
   },
   {
-    hero: "/images/photography-kellypark/DSCF1628.jpg",
-    href: undefined,
+    hero: "/images/photography-capsule/DSCF1381.jpg",
+    href: "/playground/capsule",
     width: 509,
     height: 339,
   },

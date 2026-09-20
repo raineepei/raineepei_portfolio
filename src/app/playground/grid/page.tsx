@@ -1,17 +1,17 @@
 import LeftNav from "@/components/LeftNav";
-import PhotographySlideshow from "@/components/PhotographySlideshow";
+import PhotographyGrid from "@/components/PhotographyGrid";
 
 export const metadata = {
   title: "Photography — Rainee Pei",
 };
 
-export default function Photography() {
+export default function PhotographyGridPage() {
   return (
     <div className="relative min-h-screen bg-background">
       <div className="absolute inset-0 flex items-center justify-center py-11.5">
-        <PhotographySlideshow />
+        <PhotographyGrid />
       </div>
-      <LeftNav minimal className="z-10" />
+      <LeftNav minimal back="/playground" className="z-10" />
     </div>
   );
 }

@@ -28,7 +28,15 @@ const projects = [
   { number: "04", label: "PHOTOGRAPHY", href: "/playground" },
 ];
 
-export default function LeftNav({ className = "" }: { className?: string }) {
+export default function LeftNav({
+  className = "",
+  minimal = false,
+  back,
+}: {
+  className?: string;
+  minimal?: boolean;
+  back?: string;
+}) {
   const pathname = usePathname();
 
   return (
@@ -38,41 +46,53 @@ export default function LeftNav({ className = "" }: { className?: string }) {
       <div className="flex h-full w-[437px] flex-col items-start justify-between">
         <div className="flex w-full flex-col items-start gap-[70px]">
           <div className="flex w-full flex-col items-start gap-[30px]">
-            <Link href="/" className="w-full font-ufo-mono text-sm text-accent">
-              Rainee Pei
-            </Link>
-            <div className="flex w-full flex-col items-start gap-[10px]">
-              <div className="inline-flex items-center bg-accent">
-                <p className="whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-white">
-                  UX ANALYST @ S&amp;C ELECTRIC
-                </p>
+            {back ? (
+              <Link
+                href={back}
+                className="w-full font-inconsolata text-sm tracking-[0.42px] text-accent underline underline-offset-2"
+              >
+                BACK.
+              </Link>
+            ) : (
+              <Link href="/" className="w-full font-ufo-mono text-sm text-accent">
+                Rainee Pei
+              </Link>
+            )}
+            {!minimal && (
+              <div className="flex w-full flex-col items-start gap-[10px]">
+                <div className="inline-flex items-center bg-accent">
+                  <p className="whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-white">
+                    UX ANALYST @ S&amp;C ELECTRIC
+                  </p>
+                </div>
+                <div className="flex items-center gap-[30px] whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-accent">
+                  <a
+                    href="https://drive.google.com/file/d/1isHo9CbKXxzVqzrpj0zFvMtXREPLrQ1U/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2"
+                  >
+                    RESUME.
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/raineepei/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2"
+                  >
+                    LINKEDIN.
+                  </a>
+                  <a
+                    href="mailto:pei.rainee@gmail.com"
+                    className="underline underline-offset-2"
+                  >
+                    EMAIL.
+                  </a>
+                </div>
               </div>
-              <div className="flex items-center gap-[30px] whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-accent">
-                <a
-                  href="https://drive.google.com/file/d/1isHo9CbKXxzVqzrpj0zFvMtXREPLrQ1U/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2"
-                >
-                  RESUME.
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/raineepei/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2"
-                >
-                  LINKEDIN.
-                </a>
-                <a
-                  href="mailto:pei.rainee@gmail.com"
-                  className="underline underline-offset-2"
-                >
-                  EMAIL.
-                </a>
-              </div>
-            </div>
+            )}
           </div>
+          {!minimal && (
           <div className="flex flex-col items-start gap-[18px]">
             {projects.map((project) => {
               const isActive = pathname === project.href;
@@ -110,6 +130,7 @@ export default function LeftNav({ className = "" }: { className?: string }) {
               );
             })}
           </div>
+          )}
         </div>
         <a
           href="https://www.are.na/rainee-pei"

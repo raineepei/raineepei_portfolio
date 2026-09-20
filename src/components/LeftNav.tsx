@@ -25,7 +25,7 @@ const projects = [
     href: "/kini-koffee",
     description: "UX Research",
   },
-  { number: "04", label: "PLAYGROUND", href: "/playground" },
+  { number: "04", label: "PHOTOGRAPHY", href: "/playground" },
 ];
 
 export default function LeftNav({ className = "" }: { className?: string }) {
@@ -35,80 +35,90 @@ export default function LeftNav({ className = "" }: { className?: string }) {
     <div
       className={`sticky top-0 flex h-screen w-[513px] shrink-0 items-start bg-transparent py-[50px] pl-[60px] pr-[40px] ${className}`}
     >
-      <div className="flex w-[437px] flex-col items-start gap-[70px]">
-        <div className="flex w-full flex-col items-start gap-[30px]">
-          <Link href="/" className="w-full font-ufo-mono text-sm text-accent">
-            Rainee Pei
-          </Link>
-          <div className="flex w-full flex-col items-start gap-[10px]">
-            <div className="inline-flex items-center bg-accent">
-              <p className="whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-white">
-                UX ANALYST @ S&amp;C ELECTRIC
-              </p>
-            </div>
-            <div className="flex items-center gap-[30px] whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-accent">
-              <a
-                href="https://drive.google.com/file/d/1isHo9CbKXxzVqzrpj0zFvMtXREPLrQ1U/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2"
-              >
-                RESUME.
-              </a>
-              <a
-                href="https://www.linkedin.com/in/raineepei/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2"
-              >
-                LINKEDIN.
-              </a>
-              <a
-                href="mailto:pei.rainee@gmail.com"
-                className="underline underline-offset-2"
-              >
-                EMAIL.
-              </a>
+      <div className="flex h-full w-[437px] flex-col items-start justify-between">
+        <div className="flex w-full flex-col items-start gap-[70px]">
+          <div className="flex w-full flex-col items-start gap-[30px]">
+            <Link href="/" className="w-full font-ufo-mono text-sm text-accent">
+              Rainee Pei
+            </Link>
+            <div className="flex w-full flex-col items-start gap-[10px]">
+              <div className="inline-flex items-center bg-accent">
+                <p className="whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-white">
+                  UX ANALYST @ S&amp;C ELECTRIC
+                </p>
+              </div>
+              <div className="flex items-center gap-[30px] whitespace-nowrap font-inconsolata text-sm tracking-[0.42px] text-accent">
+                <a
+                  href="https://drive.google.com/file/d/1isHo9CbKXxzVqzrpj0zFvMtXREPLrQ1U/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  RESUME.
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/raineepei/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  LINKEDIN.
+                </a>
+                <a
+                  href="mailto:pei.rainee@gmail.com"
+                  className="underline underline-offset-2"
+                >
+                  EMAIL.
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col items-start gap-[18px]">
-          {projects.map((project) => {
-            const isActive = pathname === project.href;
-            return (
-              <Link
-                key={project.number}
-                href={project.href}
-                className="group flex w-full flex-col items-start gap-1.5"
-              >
-                <div className="flex w-full items-end gap-1.5">
-                  <div className="flex items-end gap-[6px] whitespace-nowrap font-inconsolata text-accent">
-                    <p className="text-[15px]">({project.number})</p>
-                    <p
-                      className={`text-[14px] ${project.labelTracking ?? ""} underline-offset-2 group-hover:underline ${
-                        isActive ? "underline" : ""
+          <div className="flex flex-col items-start gap-[18px]">
+            {projects.map((project) => {
+              const isActive = pathname === project.href;
+              return (
+                <Link
+                  key={project.number}
+                  href={project.href}
+                  className="group flex w-full flex-col items-start gap-1.5"
+                >
+                  <div className="flex w-full items-end gap-1.5">
+                    <div className="flex items-end gap-[6px] whitespace-nowrap font-inconsolata text-accent">
+                      <p className="text-[15px]">({project.number})</p>
+                      <p
+                        className={`text-[14px] ${project.labelTracking ?? ""} underline-offset-2 group-hover:underline ${
+                          isActive ? "underline" : ""
+                        }`}
+                      >
+                        {project.label}
+                      </p>
+                    </div>
+                    <div
+                      className={`transition-opacity duration-300 group-hover:opacity-100 ${
+                        isActive ? "opacity-100" : "opacity-0"
                       }`}
                     >
-                      {project.label}
+                      <PixelHandsIcon />
+                    </div>
+                  </div>
+                  {project.description && (
+                    <p className="whitespace-nowrap font-chivo text-[12px] font-light text-accent">
+                      {project.description}
                     </p>
-                  </div>
-                  <div
-                    className={`transition-opacity duration-300 group-hover:opacity-100 ${
-                      isActive ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    <PixelHandsIcon />
-                  </div>
-                </div>
-                {project.description && (
-                  <p className="whitespace-nowrap font-chivo text-[12px] font-light text-accent">
-                    {project.description}
-                  </p>
-                )}
-              </Link>
-            );
-          })}
+                  )}
+                </Link>
+              );
+            })}
+          </div>
         </div>
+        <a
+          href="https://www.are.na/rainee-pei"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full font-inconsolata text-sm tracking-[0.42px] text-accent underline underline-offset-2"
+        >
+          ARE.NA
+        </a>
       </div>
     </div>
   );

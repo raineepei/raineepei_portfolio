@@ -25,27 +25,52 @@ const CAPSULES = [
   },
 ];
 
-function DirectionArrow({ direction, hovered }: { direction: "left" | "right"; hovered: boolean }) {
+function ArrowButton({
+  direction,
+  onClick,
+  label,
+}: {
+  direction: "left" | "right";
+  onClick: () => void;
+  label: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const [pressed, setPressed] = useState(false);
+
+  const fill = pressed ? "#8F8F8F" : hovered ? "#ABABAB" : "#C4C4C4";
+
   return (
-    <svg
-      width="7"
-      height="9"
-      viewBox="0 0 16.4545 21.75"
-      fill="none"
-      style={{ transform: `rotate(${direction === "left" ? -90 : 90}deg)` }}
+    <button
+      type="button"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setHovered(false);
+        setPressed(false);
+      }}
+      onMouseDown={() => setPressed(true)}
+      onMouseUp={() => setPressed(false)}
+      aria-label={label}
+      className={`absolute top-1/2 flex -translate-y-1/2 items-center justify-center ${
+        direction === "left" ? "left-2" : "right-2"
+      }`}
     >
-      <path
-        d="M15.7311 21.25H0.723335L8.22724 1.41309L15.7311 21.25Z"
-        fill={hovered ? "#0857C3" : "#D9D9D9"}
-        stroke="white"
-      />
-    </svg>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="14" fill={fill} />
+        <path
+          d={direction === "left" ? "M16.5 8.5L11 14L16.5 19.5" : "M11.5 8.5L17 14L11.5 19.5"}
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
   );
 }
 
 export default function PhotographySlideshow() {
   const [index, setIndex] = useState(0);
-  const [hoveredArrow, setHoveredArrow] = useState<"left" | "right" | null>(null);
   const capsule = CAPSULES[index];
 
   const goTo = (i: number) => setIndex((i + CAPSULES.length) % CAPSULES.length);
@@ -72,26 +97,8 @@ export default function PhotographySlideshow() {
           ) : (
             photo
           )}
-          <button
-            type="button"
-            onClick={() => goTo(index - 1)}
-            onMouseEnter={() => setHoveredArrow("left")}
-            onMouseLeave={() => setHoveredArrow(null)}
-            aria-label="Previous capsule"
-            className="absolute top-1/2 left-2 flex -translate-y-1/2 items-center justify-center"
-          >
-            <DirectionArrow direction="left" hovered={hoveredArrow === "left"} />
-          </button>
-          <button
-            type="button"
-            onClick={() => goTo(index + 1)}
-            onMouseEnter={() => setHoveredArrow("right")}
-            onMouseLeave={() => setHoveredArrow(null)}
-            aria-label="Next capsule"
-            className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center justify-center"
-          >
-            <DirectionArrow direction="right" hovered={hoveredArrow === "right"} />
-          </button>
+          <ArrowButton direction="left" onClick={() => goTo(index - 1)} label="Previous capsule" />
+          <ArrowButton direction="right" onClick={() => goTo(index + 1)} label="Next capsule" />
         </div>
       </div>
       <div className="flex items-center gap-[10px]">

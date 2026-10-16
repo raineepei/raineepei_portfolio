@@ -8,14 +8,17 @@ const TRAIL_MIN_DISTANCE = 15;
 const TRAIL_LIFETIME_MS = 900;
 
 const PHOTO_PANELS = [
-  { src: "/images/home/porthome-1.png", naturalWidth: 279 },
-  { src: "/images/home/porthome-2.png", naturalWidth: 413 },
-  { src: "/images/home/porthome-3.png", naturalWidth: 279 },
-  { src: "/images/home/porthome-4.png", naturalWidth: 295 },
+  { src: "/images/home/strip-1.png", naturalWidth: 140, position: "object-bottom" },
+  { src: "/images/home/strip-2.png", naturalWidth: 206.621, position: "object-bottom" },
+  { src: "/images/home/strip-3.png", naturalWidth: 139.363, position: "object-bottom" },
+  { src: "/images/home/strip-4.png", naturalWidth: 147, position: "object-bottom" },
+  { src: "/images/home/strip-5.png", naturalWidth: 155, position: "object-bottom" },
+  { src: "/images/home/strip-6.png", naturalWidth: 225, position: "object-center" },
 ];
 const PHOTO_NATURAL_WIDTH = PHOTO_PANELS.reduce((sum, p) => sum + p.naturalWidth, 0);
-const PHOTO_NATURAL_HEIGHT = 310;
-const PHOTO_MAX_WIDTH = 396;
+const PHOTO_NATURAL_HEIGHT = 155;
+const PHOTO_MAX_HEIGHT = 64;
+const PHOTO_MAX_WIDTH = (PHOTO_NATURAL_WIDTH * PHOTO_MAX_HEIGHT) / PHOTO_NATURAL_HEIGHT;
 const PHOTO_MIN_WIDTH = 140;
 
 type TrailItem = {
@@ -104,7 +107,7 @@ export default function HomeGrid() {
               className="relative h-full"
               style={{ width: (panel.naturalWidth / PHOTO_NATURAL_WIDTH) * photo.width }}
             >
-              <Image src={panel.src} alt="" fill sizes="400px" className="object-cover" priority />
+              <Image src={panel.src} alt="" fill sizes="400px" className={`object-cover ${panel.position}`} priority />
             </div>
           ))}
         </div>
